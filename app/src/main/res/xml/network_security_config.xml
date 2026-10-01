@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- aycho 网络策略
+         用户可在「设置 - API 服务商 - 自定义」中填写任意 OpenAI 兼容端点，
+         为支持局域网 / 本机部署的推理服务（如 Ollama、vLLM），此处允许明文 HTTP。
+         仅信任系统根证书，不内置任何第三方 CA。 -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <!-- aycho 默认接入的云端端点：强制使用 TLS -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">apihub.agnes-ai.com</domain>
+        <domain includeSubdomains="true">api.openai.com</domain>
+        <domain includeSubdomains="true">api.anthropic.com</domain>
+        <domain includeSubdomains="true">generativelanguage.googleapis.com</domain>
+    </domain-config>
+</network-security-config>

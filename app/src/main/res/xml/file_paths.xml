@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- aycho 崩溃日志目录 -->
+    <files-path name="aycho_crash_logs" path="aycho_crash_logs/" />
+    <!-- aycho 导出文件（日志打包后的临时目录） -->
+    <cache-path name="aycho_export" path="export/" />
+</paths>

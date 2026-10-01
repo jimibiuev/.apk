@@ -1,0 +1,67 @@
+aycho 开源许可与第三方组件声明
+================================
+
+本文件随 aycho 应用一同分发，列出随包使用或参考的开源组件及其许可证全文。
+
+一、上游开源许可声明（依 MIT 许可证要求保留）
+------------------------------------------------
+
+aycho 的自动化执行框架在早期开发阶段参考并使用了以下开源项目，
+其版权与许可声明依 MIT 许可证要求予以完整保留：
+
+1) Turbo1123/roubao（Autopilot）
+   Copyright (c) Turbo1123
+   许可证：MIT License
+
+2) Mobile-Agent
+   许可证：MIT License
+
+二、MIT License 全文
+------------------------------------------------
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+三、第三方组件
+------------------------------------------------
+
+1) Shizuku (dev.rikka.shizuku)
+   许可证：Apache License 2.0
+
+2) AndroidX / Jetpack Compose / Kotlin 标准库
+   许可证：Apache License 2.0
+
+3) OkHttp
+   许可证：Apache License 2.0
+
+4) org.json
+   许可证：JSON License
+
+Apache License 2.0 全文：http://www.apache.org/licenses/LICENSE-2.0
+JSON License 全文随组件源码分发。
+
+四、版本与发布
+------------------------------------------------
+
+aycho 官方发布地址：
+https://github.com/jimibiuev/.apk/releases/tag/v1.0.0
+
+品牌、界面、配色、图标、语音对话、记忆模块与统一模型网关（ModelGateway）
+为 aycho 自有实现。

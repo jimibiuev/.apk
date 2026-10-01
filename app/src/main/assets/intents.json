@@ -1,0 +1,1093 @@
+[
+  {
+    "intent_id": "order_food",
+    "label": "外卖下单",
+    "group": "外卖",
+    "summary": "按口味挑选餐厅并下单外卖、订餐",
+    "triggers": [
+      "订个餐",
+      "送餐",
+      "点吃的",
+      "饿了",
+      "吃饭",
+      "订餐",
+      "点餐",
+      "外卖",
+      "叫外卖",
+      "点外卖",
+      "点个 Uber Eats",
+      "用 DoorDash 点餐"
+    ],
+    "args": [
+      {
+        "name": "food",
+        "type": "string",
+        "description": "想吃什么",
+        "required": false,
+        "examples": [
+          "Burger",
+          "Pizza",
+          "Sushi",
+          "Tacos"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.ubercab.eats",
+        "name": "Uber Eats",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "https://www.ubereats.com/search?q={food}",
+        "description": "美食外卖直达"
+      },
+      {
+        "package": "com.dd.doordash",
+        "name": "DoorDash",
+        "mode": "automation",
+        "rank": 85,
+        "playbook": [
+          "打开 DoorDash",
+          "搜索餐品",
+          "选择商家",
+          "下单"
+        ],
+        "description": "餐品配送"
+      },
+      {
+        "package": "com.deliveroo.orderapp",
+        "name": "Deliveroo",
+        "mode": "automation",
+        "rank": 70,
+        "playbook": [
+          "打开 Deliveroo",
+          "搜索餐厅",
+          "选择菜品",
+          "结算"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "find_food",
+    "label": "附近美食",
+    "group": "美食",
+    "summary": "搜索附近的餐厅与好吃的去处",
+    "triggers": [
+      "想吃点什么",
+      "找吃的",
+      "有啥好吃的",
+      "吃什么",
+      "附近美食",
+      "推荐吃的",
+      "美食",
+      "好吃的",
+      "附近有什么好吃的",
+      "用 Yelp 找餐厅"
+    ],
+    "args": [
+      {
+        "name": "food",
+        "type": "string",
+        "description": "想吃的类型",
+        "required": false,
+        "examples": [
+          "Brunch",
+          "Steak",
+          "Ramen",
+          "Italian"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.yelp.android",
+        "name": "Yelp",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "yelp:///search?terms={food}",
+        "description": "本地商家与点评"
+      },
+      {
+        "package": "com.google.android.apps.maps",
+        "name": "Google Maps",
+        "mode": "handoff",
+        "rank": 85,
+        "uri": "https://www.google.com/maps/search/{food}"
+      },
+      {
+        "package": "com.tripadvisor.tripadvisor",
+        "name": "Tripadvisor",
+        "mode": "automation",
+        "rank": 65,
+        "playbook": [
+          "打开 Tripadvisor",
+          "搜索餐厅",
+          "查看评价"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "find_fun",
+    "label": "附近玩乐",
+    "group": "生活",
+    "summary": "搜索附近好玩的地方与娱乐推荐",
+    "triggers": [
+      "找地方玩",
+      "去哪玩",
+      "有啥好玩的",
+      "附近景点",
+      "周末去哪",
+      "玩什么",
+      "好玩的",
+      "附近有什么好玩的",
+      "附近玩乐"
+    ],
+    "args": [
+      {
+        "name": "keyword",
+        "type": "string",
+        "description": "想玩的类型",
+        "required": false,
+        "examples": [
+          "Museum",
+          "Cinema",
+          "Theme Park",
+          "Hiking"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.google.android.apps.maps",
+        "name": "Google Maps",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "https://www.google.com/maps/search/{keyword}"
+      },
+      {
+        "package": "com.tripadvisor.tripadvisor",
+        "name": "Tripadvisor",
+        "mode": "automation",
+        "rank": 80,
+        "playbook": [
+          "打开 Tripadvisor",
+          "搜索景点",
+          "查看评分"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "book_hotel",
+    "label": "酒店预订",
+    "group": "生活",
+    "summary": "预订酒店与民宿",
+    "triggers": [
+      "开房",
+      "民宿",
+      "住宿",
+      "找酒店",
+      "订房",
+      "住酒店",
+      "订酒店",
+      "酒店预订",
+      "用 Booking 订房"
+    ],
+    "args": [
+      {
+        "name": "keyword",
+        "type": "string",
+        "description": "地点或酒店名",
+        "required": false,
+        "examples": [
+          "Tokyo",
+          "Paris",
+          "New York"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.booking",
+        "name": "Booking.com",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "https://www.booking.com/searchresults.html?ss={keyword}"
+      },
+      {
+        "package": "com.airbnb.android",
+        "name": "Airbnb",
+        "mode": "automation",
+        "rank": 80,
+        "playbook": [
+          "打开 Airbnb",
+          "搜索目的地",
+          "选择日期",
+          "预订"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "book_movie",
+    "label": "电影票购买",
+    "group": "生活",
+    "summary": "在线购买电影票并选座",
+    "triggers": [
+      "电影院",
+      "订电影票",
+      "电影票",
+      "看电影",
+      "买电影票",
+      "电影票购买"
+    ],
+    "args": [
+      {
+        "name": "keyword",
+        "type": "string",
+        "description": "电影名",
+        "required": false,
+        "examples": [
+          "Dune",
+          "Oppenheimer",
+          "Barbie"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.fandango",
+        "name": "Fandango",
+        "mode": "automation",
+        "rank": 95,
+        "playbook": [
+          "打开 Fandango",
+          "选择电影",
+          "选择场次",
+          "购票"
+        ]
+      },
+      {
+        "package": "com.google.android.apps.maps",
+        "name": "Google Maps",
+        "mode": "handoff",
+        "rank": 60,
+        "uri": "https://www.google.com/maps/search/movie+theater",
+        "description": "查找附近影院"
+      }
+    ]
+  },
+  {
+    "intent_id": "assistant_general",
+    "label": "通用助手",
+    "group": "AI",
+    "summary": "调用 AI 助手代办查询、规划与生活服务",
+    "triggers": [
+      "帮我订",
+      "帮我找",
+      "帮我查",
+      "问一下",
+      "AI 助手",
+      "通用助手"
+    ],
+    "args": [
+      {
+        "name": "message",
+        "type": "string",
+        "description": "问题或需求",
+        "required": false,
+        "examples": [
+          "帮我规划三天行程",
+          "推荐附近咖啡店"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.openai.chatgpt",
+        "name": "ChatGPT",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "https://chatgpt.com/?q={message}"
+      },
+      {
+        "package": "com.google.android.apps.bard",
+        "name": "Gemini",
+        "mode": "handoff",
+        "rank": 85,
+        "uri": "https://gemini.google.com/app"
+      },
+      {
+        "package": "com.anthropic.claude",
+        "name": "Claude",
+        "mode": "handoff",
+        "rank": 75,
+        "uri": "https://claude.ai/new"
+      }
+    ]
+  },
+  {
+    "intent_id": "navigate",
+    "label": "路线导航",
+    "group": "出行",
+    "summary": "规划路线并导航到目的地",
+    "triggers": [
+      "到",
+      "地图",
+      "路线",
+      "怎么走",
+      "去",
+      "导航",
+      "路线导航"
+    ],
+    "args": [
+      {
+        "name": "destination",
+        "type": "string",
+        "description": "目的地",
+        "required": true,
+        "examples": [
+          "Airport",
+          "Downtown"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.google.android.apps.maps",
+        "name": "Google Maps",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "https://www.google.com/maps/dir/?api=1&destination={destination}"
+      },
+      {
+        "package": "com.waze",
+        "name": "Waze",
+        "mode": "handoff",
+        "rank": 85,
+        "uri": "waze://?q={destination}&navigate=yes"
+      },
+      {
+        "package": "com.apple.maps",
+        "name": "Apple Maps",
+        "mode": "handoff",
+        "rank": 70,
+        "uri": "https://maps.apple.com/?daddr={destination}"
+      }
+    ]
+  },
+  {
+    "intent_id": "call_taxi",
+    "label": "叫车出行",
+    "group": "出行",
+    "summary": "呼叫网约车出行",
+    "triggers": [
+      "叫个车",
+      "网约车",
+      "出租车",
+      "叫车",
+      "打车",
+      "叫车出行",
+      "Uber",
+      "Lyft"
+    ],
+    "args": [
+      {
+        "name": "destination",
+        "type": "string",
+        "description": "目的地",
+        "required": false,
+        "examples": [
+          "Airport",
+          "Station"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.ubercab",
+        "name": "Uber",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "uber://?action=setPickup&dropoff[formatted_address]={destination}"
+      },
+      {
+        "package": "me.lyft.android",
+        "name": "Lyft",
+        "mode": "automation",
+        "rank": 80,
+        "playbook": [
+          "打开 Lyft",
+          "输入目的地",
+          "确认车型",
+          "叫车"
+        ]
+      },
+      {
+        "package": "com.bolt.eu",
+        "name": "Bolt",
+        "mode": "automation",
+        "rank": 70,
+        "playbook": [
+          "打开 Bolt",
+          "输入目的地",
+          "选择车型",
+          "叫车"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "generate_image",
+    "label": "图片生成",
+    "group": "AI",
+    "summary": "用 AI 生成图片",
+    "triggers": [
+      "生成一张",
+      "画一张",
+      "生成图",
+      "AI 画图",
+      "生成图片",
+      "画图",
+      "图片生成"
+    ],
+    "args": [
+      {
+        "name": "prompt",
+        "type": "string",
+        "description": "图片描述",
+        "required": true,
+        "examples": [
+          "a cat on the moon"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.openai.chatgpt",
+        "name": "ChatGPT",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "https://chatgpt.com/?q={prompt}"
+      },
+      {
+        "package": "com.google.android.apps.bard",
+        "name": "Gemini",
+        "mode": "handoff",
+        "rank": 85,
+        "uri": "https://gemini.google.com/app"
+      },
+      {
+        "package": "ai.leonardo.mobile",
+        "name": "Leonardo",
+        "mode": "automation",
+        "rank": 70,
+        "playbook": [
+          "打开 Leonardo",
+          "输入提示词",
+          "生成图片"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "ai_chat",
+    "label": "智能问答",
+    "group": "AI",
+    "summary": "与 AI 助手对话问答",
+    "triggers": [
+      "帮我查",
+      "问一下",
+      "AI 助手",
+      "AI 对话",
+      "问 AI",
+      "智能问答"
+    ],
+    "args": [
+      {
+        "name": "message",
+        "type": "string",
+        "description": "问题内容",
+        "required": false,
+        "examples": [
+          "今天有什么新闻"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.openai.chatgpt",
+        "name": "ChatGPT",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "https://chatgpt.com/?q={message}"
+      },
+      {
+        "package": "com.google.android.apps.bard",
+        "name": "Gemini",
+        "mode": "handoff",
+        "rank": 85,
+        "uri": "https://gemini.google.com/app"
+      },
+      {
+        "package": "com.anthropic.claude",
+        "name": "Claude",
+        "mode": "handoff",
+        "rank": 75,
+        "uri": "https://claude.ai/new"
+      }
+    ]
+  },
+  {
+    "intent_id": "play_music",
+    "label": "音乐播放",
+    "group": "音乐",
+    "summary": "播放想听的音乐",
+    "triggers": [
+      "听音乐",
+      "来首歌",
+      "播放",
+      "音乐",
+      "放歌",
+      "听歌",
+      "音乐播放"
+    ],
+    "args": [
+      {
+        "name": "song",
+        "type": "string",
+        "description": "歌曲名或歌手",
+        "required": false,
+        "examples": [
+          "Jazz",
+          "Taylor Swift"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.spotify.music",
+        "name": "Spotify",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "spotify:search:{song}"
+      },
+      {
+        "package": "com.google.android.apps.youtube.music",
+        "name": "YouTube Music",
+        "mode": "handoff",
+        "rank": 85,
+        "uri": "https://music.youtube.com/search?q={song}"
+      },
+      {
+        "package": "com.apple.android.music",
+        "name": "Apple Music",
+        "mode": "handoff",
+        "rank": 70,
+        "uri": "https://music.apple.com/search?term={song}"
+      }
+    ]
+  },
+  {
+    "intent_id": "watch_video",
+    "label": "视频播放",
+    "group": "视频",
+    "summary": "看视频、刷短视频",
+    "triggers": [
+      "视频",
+      "看电影",
+      "追剧",
+      "刷视频",
+      "看视频",
+      "视频播放"
+    ],
+    "args": [
+      {
+        "name": "keyword",
+        "type": "string",
+        "description": "搜索关键词",
+        "required": false,
+        "examples": [
+          "Trailer",
+          "Documentary"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.google.android.youtube",
+        "name": "YouTube",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "https://www.youtube.com/results?search_query={keyword}"
+      },
+      {
+        "package": "com.netflix.mediaclient",
+        "name": "Netflix",
+        "mode": "automation",
+        "rank": 80,
+        "playbook": [
+          "打开 Netflix",
+          "搜索影片",
+          "播放"
+        ]
+      },
+      {
+        "package": "com.zhiliaoapp.musically",
+        "name": "TikTok",
+        "mode": "automation",
+        "rank": 70,
+        "playbook": [
+          "打开 TikTok",
+          "浏览视频",
+          "播放"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "send_message",
+    "label": "消息发送",
+    "group": "社交",
+    "summary": "给好友发消息",
+    "triggers": [
+      "给谁说",
+      "聊天",
+      "发消息",
+      "发个消息",
+      "消息发送"
+    ],
+    "args": [
+      {
+        "name": "contact",
+        "type": "string",
+        "description": "联系人",
+        "required": false,
+        "examples": [
+          "Alex"
+        ]
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "description": "消息内容",
+        "required": false,
+        "examples": [
+          "在路上，马上到"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.whatsapp",
+        "name": "WhatsApp",
+        "mode": "automation",
+        "rank": 95,
+        "playbook": [
+          "打开 WhatsApp",
+          "搜索联系人",
+          "进入聊天",
+          "输入消息",
+          "发送"
+        ]
+      },
+      {
+        "package": "org.telegram.messenger",
+        "name": "Telegram",
+        "mode": "automation",
+        "rank": 80,
+        "playbook": [
+          "打开 Telegram",
+          "搜索联系人",
+          "进入聊天",
+          "输入消息",
+          "发送"
+        ]
+      },
+      {
+        "package": "org.thoughtcrime.securesms",
+        "name": "Signal",
+        "mode": "automation",
+        "rank": 70,
+        "playbook": [
+          "打开 Signal",
+          "搜索联系人",
+          "进入聊天",
+          "输入消息",
+          "发送"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "post_social",
+    "label": "动态发布",
+    "group": "社交",
+    "summary": "发布社交动态与图文",
+    "triggers": [
+      "发状态",
+      "发动态",
+      "发帖",
+      "发个动态",
+      "动态发布"
+    ],
+    "args": [
+      {
+        "name": "content",
+        "type": "string",
+        "description": "内容",
+        "required": false,
+        "examples": [
+          "今天天气不错"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.instagram.android",
+        "name": "Instagram",
+        "mode": "automation",
+        "rank": 95,
+        "playbook": [
+          "打开 Instagram",
+          "点击发布",
+          "选择图片",
+          "输入文案",
+          "发布"
+        ]
+      },
+      {
+        "package": "com.twitter.android",
+        "name": "X",
+        "mode": "automation",
+        "rank": 85,
+        "playbook": [
+          "打开 X",
+          "点击发布",
+          "输入内容",
+          "发布"
+        ]
+      },
+      {
+        "package": "com.instagram.barcelona",
+        "name": "Threads",
+        "mode": "automation",
+        "rank": 70,
+        "playbook": [
+          "打开 Threads",
+          "点击发布",
+          "输入内容",
+          "发布"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "post_photo_note",
+    "label": "图文笔记",
+    "group": "社交",
+    "summary": "发布图文笔记与长文分享",
+    "triggers": [
+      "发笔记",
+      "图文笔记",
+      "发篇笔记",
+      "分享图文"
+    ],
+    "args": [
+      {
+        "name": "content",
+        "type": "string",
+        "description": "笔记内容",
+        "required": false,
+        "examples": [
+          "周末探店记录"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.instagram.android",
+        "name": "Instagram",
+        "mode": "automation",
+        "rank": 95,
+        "playbook": [
+          "打开 Instagram",
+          "点击发布",
+          "选择图片或视频",
+          "输入标题与正文",
+          "添加话题标签",
+          "发布"
+        ]
+      },
+      {
+        "package": "com.instagram.barcelona",
+        "name": "Threads",
+        "mode": "automation",
+        "rank": 75,
+        "playbook": [
+          "打开 Threads",
+          "点击发布",
+          "输入正文",
+          "发布"
+        ]
+      }
+    ],
+    "prompt_hint": "图文笔记正文建议简洁精炼，避免超长描述"
+  },
+  {
+    "intent_id": "pay",
+    "label": "扫码付款",
+    "group": "支付",
+    "summary": "扫码付款、完成支付",
+    "triggers": [
+      "买单",
+      "扫码付款",
+      "付钱",
+      "支付",
+      "付款"
+    ],
+    "args": [],
+    "targets": [
+      {
+        "package": "com.google.android.apps.walletnfcrel",
+        "name": "Google Wallet",
+        "mode": "automation",
+        "rank": 95,
+        "playbook": [
+          "打开 Google Wallet",
+          "选择支付卡",
+          "靠近终端完成支付"
+        ]
+      },
+      {
+        "package": "com.paypal.android.p2pmobile",
+        "name": "PayPal",
+        "mode": "automation",
+        "rank": 80,
+        "playbook": [
+          "打开 PayPal",
+          "选择付款码",
+          "展示给商户扫描"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "scan",
+    "label": "二维码扫描",
+    "group": "支付",
+    "summary": "扫描二维码与条码",
+    "triggers": [
+      "扫描",
+      "扫一扫",
+      "扫码",
+      "二维码扫描"
+    ],
+    "args": [],
+    "targets": [
+      {
+        "package": "com.google.android.GoogleCamera",
+        "name": "系统相机",
+        "mode": "automation",
+        "rank": 95,
+        "playbook": [
+          "打开系统相机",
+          "切换扫码模式",
+          "对准二维码"
+        ]
+      },
+      {
+        "package": "com.google.android.googlequicksearchbox",
+        "name": "Google Lens",
+        "mode": "automation",
+        "rank": 80,
+        "playbook": [
+          "打开 Google Lens",
+          "对准二维码",
+          "识别结果"
+        ]
+      },
+      {
+        "package": "com.paypal.android.p2pmobile",
+        "name": "PayPal",
+        "mode": "automation",
+        "rank": 60,
+        "playbook": [
+          "打开 PayPal",
+          "使用扫码功能"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "take_photo",
+    "label": "相机拍照",
+    "group": "工具",
+    "summary": "打开相机拍照",
+    "triggers": [
+      "拍摄",
+      "自拍",
+      "照相",
+      "拍照",
+      "相机拍照"
+    ],
+    "args": [],
+    "targets": [
+      {
+        "package": "com.android.camera",
+        "name": "相机",
+        "mode": "automation",
+        "rank": 95,
+        "playbook": [
+          "打开相机",
+          "按下快门"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "set_alarm",
+    "label": "闹钟提醒",
+    "group": "工具",
+    "summary": "设置闹钟与定时提醒",
+    "triggers": [
+      "设个闹钟",
+      "叫我起床",
+      "定时",
+      "提醒",
+      "闹钟",
+      "闹钟提醒"
+    ],
+    "args": [
+      {
+        "name": "time",
+        "type": "string",
+        "description": "时间",
+        "required": false,
+        "examples": [
+          "07:30"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.android.deskclock",
+        "name": "时钟",
+        "mode": "automation",
+        "rank": 95,
+        "playbook": [
+          "打开时钟",
+          "进入闹钟",
+          "新建闹钟",
+          "设置时间",
+          "保存"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "shopping",
+    "label": "在线购物",
+    "group": "购物",
+    "summary": "在网上购物下单",
+    "triggers": [
+      "买东西",
+      "网购",
+      "下单",
+      "购物",
+      "买",
+      "在线购物"
+    ],
+    "args": [
+      {
+        "name": "item",
+        "type": "string",
+        "description": "商品",
+        "required": false,
+        "examples": [
+          "Headphones",
+          "Sneakers"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.amazon.mShop.android.shopping",
+        "name": "Amazon",
+        "mode": "handoff",
+        "rank": 95,
+        "uri": "https://www.amazon.com/s?k={item}"
+      },
+      {
+        "package": "com.ebay.mobile",
+        "name": "eBay",
+        "mode": "handoff",
+        "rank": 80,
+        "uri": "ebay://link?search={item}"
+      },
+      {
+        "package": "com.walmart.android",
+        "name": "Walmart",
+        "mode": "automation",
+        "rank": 70,
+        "playbook": [
+          "打开 Walmart",
+          "搜索商品",
+          "加入购物车",
+          "结算"
+        ]
+      }
+    ]
+  },
+  {
+    "intent_id": "read_book",
+    "label": "电子书阅读",
+    "group": "阅读",
+    "summary": "阅读电子书",
+    "triggers": [
+      "看小说",
+      "阅读",
+      "读书",
+      "看书",
+      "电子书阅读"
+    ],
+    "args": [
+      {
+        "name": "book",
+        "type": "string",
+        "description": "书名",
+        "required": false,
+        "examples": [
+          "Novel",
+          "Biography"
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "package": "com.amazon.kindle",
+        "name": "Kindle",
+        "mode": "automation",
+        "rank": 95,
+        "playbook": [
+          "打开 Kindle",
+          "搜索或打开书架",
+          "开始阅读"
+        ]
+      },
+      {
+        "package": "com.apple.ibooks",
+        "name": "Apple Books",
+        "mode": "automation",
+        "rank": 75,
+        "playbook": [
+          "打开 Apple Books",
+          "搜索或打开书架",
+          "开始阅读"
+        ]
+      }
+    ]
+  }
+]
