@@ -12,7 +12,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/platform-Android%208.0%2B-2674F8?style=flat-square" alt="platform">
-  <img src="https://img.shields.io/badge/version-2.2.2-2674F8?style=flat-square" alt="version">
+  <img src="https://img.shields.io/badge/version-2.3.1-2674F8?style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/license-MIT-2674F8?style=flat-square" alt="license">
   <img src="https://img.shields.io/badge/theme-%E8%93%9D%E9%BB%91%E6%B7%B1%E8%89%B2-0B1220?style=flat-square" 
   <img src="https://img.shields.io/github/v/release/jimibiuev/aycho?style=flat-square&color=2674F8&include_prereleases" alt="release">
@@ -139,7 +139,7 @@ aycho 内部是一个协作式的 Agent 运行时，任务被拆成四步循环�
 
 ## 下载安装
 
-1. 打开 [Releases](https://github.com/jimibiuev/aycho/releases) 页面，下载最新版本的 `aycho-v2.2.2-release-signed.apk`
+1. 打开 [Releases](https://github.com/jimibiuev/aycho/releases) 页面，下载最新版本的 `aycho-v2.3.1-release-signed.apk`
 2. 在系统设置中允许「安装未知来源应用」，然后完成安装
 3. 安装并启动 **Shizuku**，按提示完成授权（Android 11 及以上可通过无线调试启动）
 4. 回到 aycho，在「设置 → API 服务商」填入你的 API Key
