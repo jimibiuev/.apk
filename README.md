@@ -14,7 +14,9 @@
   <img src="https://img.shields.io/badge/platform-Android%208.0%2B-2674F8?style=flat-square" alt="platform">
   <img src="https://img.shields.io/badge/version-2.2.2-2674F8?style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/license-MIT-2674F8?style=flat-square" alt="license">
-  <img src="https://img.shields.io/badge/theme-%E8%93%9D%E9%BB%91%E6%B7%B1%E8%89%B2-0B1220?style=flat-square" alt="theme">
+  <img src="https://img.shields.io/badge/theme-%E8%93%9D%E9%BB%91%E6%B7%B1%E8%89%B2-0B1220?style=flat-square" 
+  <img src="https://img.shields.io/github/v/release/jimibiuev/aycho?style=flat-square&color=2674F8&include_prereleases" alt="release">
+  <img src="https://img.shields.io/github/stars/jimibiuev/aycho?style=flat-square&color=2674F8" alt="stars">
 </p>
 
 ---
@@ -45,6 +47,15 @@
 它不依赖任何第三方 App 的私有接口，也不要求对方开放 API。aycho 走的是**视觉理解 + 界面操作**这条路线：截图理解屏幕内容，像人一样去点、去滑、去输入，因此对绝大多数应用都能用。
 
 整个过程以浮层气泡的形式在屏幕上方呈现，不打断你正在看的页面；完成后自动收起，把结果留给你。
+
+## 为什么是 aycho
+
+| 常见做法 | aycho 的做法 |
+| --- | --- |
+| 依赖各 App 开放接口，能操作的应用有限 | 走视觉理解 + 界面操作，主流应用基本都能用 |
+| 自动化往往需要 Root | 用 Shizuku 拿 ADB 级权限，免 Root |
+| 把屏幕内容上传云端识别 | 截图仅本地当轮使用，用完即删，不上传 |
+| 只能跑固定脚本 | 自然语言下达目标，自己规划步骤、校验结果、出错回退 |
 
 ## 应用概览
 
@@ -306,6 +317,12 @@ aycho 是基于开源项目 [Turbo1123/roubao](https://github.com/Turbo1123/roub
 - 品牌、界面、配色、图标、语音与记忆模块为 aycho 自有实现
 
 上游项目的 MIT 许可证全文见 [LICENSE](LICENSE)，第三方组件声明见 [NOTICE](NOTICE) 与 [THIRD_PARTY_LICENSES](app/src/main/assets/licenses/THIRD_PARTY_LICENSES.txt)，改动记录见 [CHANGELOG.md](CHANGELOG.md)。
+
+## 支持项目
+
+如果 aycho 帮到了你，欢迎点亮一枚 Star，这是对项目最直接的帮助。
+
+[![GitHub stars](https://img.shields.io/github/stars/jimibiuev/aycho?style=social)](https://github.com/jimibiuev/aycho)
 
 ## 许可证
 
