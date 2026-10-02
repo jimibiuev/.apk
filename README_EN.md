@@ -12,7 +12,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/platform-Android%208.0%2B-2674F8?style=flat-square" alt="platform">
-  <img src="https://img.shields.io/badge/version-2.2.2-2674F8?style=flat-square" alt="version">
+  <img src="https://img.shields.io/badge/version-2.3.1-2674F8?style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/license-MIT-2674F8?style=flat-square" alt="license">
   <img src="https://img.shields.io/badge/theme-blue%20%2F%20black-0B1220?style=flat-square" 
   <img src="https://img.shields.io/github/v/release/jimibiuev/aycho?style=flat-square&color=2674F8&include_prereleases" alt="release">
@@ -139,7 +139,7 @@ Key design points:
 
 ## Download & Install
 
-1. Open the [Releases](https://github.com/jimibiuev/aycho/releases) page and download `aycho-v2.2.2-release-signed.apk`
+1. Open the [Releases](https://github.com/jimibiuev/aycho/releases) page and download `aycho-v2.3.1-release-signed.apk`
 2. Allow "Install unknown apps" in system settings, then install
 3. Install and start **Shizuku**, and grant it privileges (on Android 11+ you can start it via wireless debugging)
 4. In aycho, open **Settings → API Provider** and enter your API key
