@@ -128,7 +128,7 @@ aycho 内部是一个协作式的 Agent 运行时，任务被拆成四步循环�
 
 ## 下载安装
 
-1. 打开 [Releases](https://github.com/jimibiuev/.apk/releases) 页面，下载最新版本的 `aycho-v2.1.0-release-signed.apk`
+1. 打开 [Releases](https://github.com/jimibiuev/aycho/releases) 页面，下载最新版本的 `aycho-v2.1.0-release-signed.apk`
 2. 在系统设置中允许「安装未知来源应用」，然后完成安装
 3. 安装并启动 **Shizuku**，按提示完成授权（Android 11 及以上可通过无线调试启动）
 4. 回到 aycho，在「设置 → API 服务商」填入你的 API Key
@@ -145,8 +145,8 @@ sha256sum -c SHA256SUMS.txt
 需要 JDK 17、Android SDK 34、Gradle 8.x：
 
 ```bash
-git clone https://github.com/jimibiuev/.apk.git
-cd .apk
+git clone https://github.com/jimibiuev/aycho.git
+cd aycho
 ./gradlew assembleDebug
 ```
 
