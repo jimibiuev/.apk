@@ -14,7 +14,9 @@
   <img src="https://img.shields.io/badge/platform-Android%208.0%2B-2674F8?style=flat-square" alt="platform">
   <img src="https://img.shields.io/badge/version-2.2.2-2674F8?style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/license-MIT-2674F8?style=flat-square" alt="license">
-  <img src="https://img.shields.io/badge/theme-blue%20%2F%20black-0B1220?style=flat-square" alt="theme">
+  <img src="https://img.shields.io/badge/theme-blue%20%2F%20black-0B1220?style=flat-square" 
+  <img src="https://img.shields.io/github/v/release/jimibiuev/aycho?style=flat-square&color=2674F8&include_prereleases" alt="release">
+  <img src="https://img.shields.io/github/stars/jimibiuev/aycho?style=flat-square&color=2674F8" alt="stars">
 </p>
 
 ---
@@ -45,6 +47,15 @@
 It relies on no private APIs and requires no cooperation from the target apps. aycho takes the **vision + UI automation** route: it captures the screen to understand what is displayed, then interacts the way a person would. That makes it work with virtually any app.
 
 Everything happens in a floating bubble above your current screen, so your work is not interrupted. When the task finishes, the bubble disappears and leaves you the result.
+
+## Why aycho
+
+| Common approach | How aycho does it |
+| --- | --- |
+| Relies on each app's API, so only a handful of apps work | Vision understanding + UI operation — works with most mainstream apps |
+| Automation usually needs root | Gets ADB-level privileges through Shizuku — no root required |
+| Screenshots uploaded to the cloud for recognition | Screenshots are used locally for one round, then deleted right away |
+| Only runs fixed scripts | You state a goal in natural language; it plans, verifies and retries on its own |
 
 ## App Overview
 
@@ -306,6 +317,12 @@ aycho is a derivative work of the open-source project [Turbo1123/roubao](https:/
 - Branding, UI, color scheme, icons, voice and memory modules are aycho's own implementation
 
 The upstream MIT license text is in [LICENSE](LICENSE); third-party attributions are in [NOTICE](NOTICE) and [THIRD_PARTY_LICENSES](app/src/main/assets/licenses/THIRD_PARTY_LICENSES.txt); change history is in [CHANGELOG.md](CHANGELOG.md).
+
+## Support
+
+If aycho is useful to you, a star is the most direct way to help the project.
+
+[![GitHub stars](https://img.shields.io/github/stars/jimibiuev/aycho?style=social)](https://github.com/jimibiuev/aycho)
 
 ## License
 
