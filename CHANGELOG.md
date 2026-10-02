@@ -1,5 +1,29 @@
 # Changelog
 
+## 2.3.1 - 2026-10-02
+
+预发布。**修复「Shizuku 已授权却永远未连接、指令全部无效」的根因**。
+
+- **根因**：`proguard-rules.pro` 中 `-keep class * extends android.app.Service { *; }` 覆盖不到 `ShellService`（它继承 AIDL 的 `IShellService.Stub`，并非 `android.app.Service`）。R8 在 release 构建里将该类重命名/裁剪，Shizuku 服务端按类名字符串反射加载失败，UserService 绑定永久失效
+- **dex 层证据**：v2.3.0-release 的 dex 中 `Lcom/aycho/app/service/ShellService;` 完全不存在；未混淆的 v1.4.2-debug 存在；本版已恢复
+- **修复**：显式 keep `com.aycho.app.service.ShellService` 与 `IShellService`（含 `$Stub` / `$*`）并加 `-keepnames`；绑定目标由 `ShellService::class.java.name` 改为字面量 `"com.aycho.app.service.ShellService"`
+- **语义修正**：权限级别以「是否已授权」为准，不再把「已授权但服务未绑定」误报为未连接；首页文案改为「已授权 · 可以执行指令」
+- **绑定兜底**：`awaitReady()` 超时后补一次强制重绑（再等 1.5s），仍失败才如实返回未就绪；已授权但未连接时输出显式诊断日志
+- **通道说明**：Shizuku 13.1.5 的 `newProcess` 为 private、服务端接口不在公开构件中，无法做旁路兜底；UserService 是官方唯一支持的执行通道
+- 沿用 2.3.0 全部修复
+
+## 2.3.0 - 2026-10-02
+
+预发布。Shizuku 授权状态可观察 + 操作执行链路修复。
+
+- **状态可观察**：新增 `ShizukuState`（未运行 / 未授权 / 已授权待连接 / 已连接），连接、断开、权限变化主动回调 UI，界面实时刷新
+- **执行前置守卫**：进入 ReAct 循环前 `awaitReady()` 等待 UserService 就绪，未就绪直接返回明确原因，不再空转耗尽步数
+- **打开应用一步直达**：纯「打开 / 启动 / 进入某应用」指令走本地快速路径，零模型往返
+- **打开应用多级回退 + 结果校验**：`monkey` → 显式 `am start` Intent → launcher 组件 `am start -n`，每次轮询前台包名确认真实结果
+- **执行结果可判定**：新增 `ShellResult`（ok / output / channel / code），快速模式不再无条件判成功
+- **Shell 工具接入 Shizuku**：`ShellBridge` 统一走 `DeviceBridge` 执行通道
+- **移除隐式 su 兜底**：su 仅在显式允许时尝试并统一加超时，无 root 设备不再长时间卡住
+
 ## 2.2.2 - 2026-10-01
 
 预发布（Pre-release）。服务商显示名英文化。
