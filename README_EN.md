@@ -128,7 +128,7 @@ Key design points:
 
 ## Download & Install
 
-1. Open the [Releases](https://github.com/jimibiuev/.apk/releases) page and download `aycho-v2.1.0-release-signed.apk`
+1. Open the [Releases](https://github.com/jimibiuev/aycho/releases) page and download `aycho-v2.1.0-release-signed.apk`
 2. Allow "Install unknown apps" in system settings, then install
 3. Install and start **Shizuku**, and grant it privileges (on Android 11+ you can start it via wireless debugging)
 4. In aycho, open **Settings → API Provider** and enter your API key
@@ -145,8 +145,8 @@ sha256sum -c SHA256SUMS.txt
 Requires JDK 17, Android SDK 34 and Gradle 8.x:
 
 ```bash
-git clone https://github.com/jimibiuev/.apk.git
-cd .apk
+git clone https://github.com/jimibiuev/aycho.git
+cd aycho
 ./gradlew assembleDebug
 ```
 
